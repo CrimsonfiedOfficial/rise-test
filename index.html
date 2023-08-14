@@ -47,6 +47,7 @@
         }
 
         .purchase-btn {
+            position: relative;
             background-color: #007acc;
             color: white;
             border: none;
@@ -60,15 +61,45 @@
         .purchase-btn:hover {
             background-color: #005faa;
         }
+
+        .purchase-tooltip {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: white;
+            border-radius: 5px;
+            padding: 5px 10px;
+            font-size: 12px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+
+        .purchase-btn-wrapper:hover .purchase-tooltip {
+            opacity: 1;
+        }
+
+        .product-image {
+            max-width: 100%;
+            height: auto;
+        }
     </style>
 </head>
 <body>
     <div class="card-container">
         <div class="store-card">
             <h1 class="store-title">Rise for Roblox Store</h1>
-            <p class="store-description">Discover the latest and best VapeV4 enhancements for your Roblox experience!</p>
-            <div class="purchase-btn-wrapper">
-                <a href="https://vantage.rip" class="purchase-btn">Explore Enhancements</a>
+            <p class="store-description">Lets explore the better VapeV4 for an enhanced Roblox experience!</p>
+            <div class="product-image">
+                <img src="riseimage.jpg" alt="Product Image" />
+            </div>
+            <div class="purchase-btn-wrapper" title="Click here to purchase">
+                <a href="https://vantage.rip" class="purchase-btn">
+                    Purchase
+                    <span class="purchase-tooltip">Click here to buy</span>
+                </a>
             </div>
         </div>
     </div>
