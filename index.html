@@ -9,20 +9,19 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #e5e5e5; /* Updated background color */
+            background-color: #e5e5e5;
             display: flex;
-            justify-content: center;
+            flex-direction: column; /* Stack elements vertically */
             align-items: center;
             min-height: 100vh;
             overflow: hidden;
         }
 
-        .card-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            height: 100%;
+        .placeholder-image {
+            max-width: 100%;
+            height: auto;
+            max-height: 440px;
+            margin-top: 20px; /* Add spacing between the image and the card */
         }
 
         .store-card {
@@ -32,6 +31,7 @@
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
             text-align: center;
             max-width: 400px;
+            margin-top: 20px; /* Add spacing between the card and other elements */
         }
 
         .store-title {
@@ -80,28 +80,19 @@
         .purchase-btn-wrapper:hover .purchase-tooltip {
             opacity: 1;
         }
-
-        .product-image {
-            max-width: 100%;
-            height: auto;
-            max-height: 440px; /* To maintain image proportions */
-        }
     </style>
 </head>
 <body>
-    <div class="card-container">
-        <div class="store-card">
-            <h1 class="store-title">Rise for Roblox Store</h1>
-            <p class="store-description">Lets explore the better VapeV4 for an enhanced Roblox experience!</p>
-            <div class="product-image">
-                <img src="riseimage.jpg" alt="Product Image" />
-            </div>
-            <div class="purchase-btn-wrapper" title="Click here to purchase">
-                <a href="https://vantage.rip" class="purchase-btn">
-                    Purchase
-                    <span class="purchase-tooltip">Click here to buy</span>
-                </a>
-            </div>
+    <img src="riseimage.jpg" alt="Placeholder Image" class="placeholder-image">
+    
+    <div class="store-card">
+        <h1 class="store-title">Rise for Roblox Store</h1>
+        <p class="store-description">Lets explore the better VapeV4 for an enhanced Roblox experience!</p>
+        <div class="purchase-btn-wrapper" title="Click here to purchase">
+            <a href="https://vantage.rip" class="purchase-btn">
+                Purchase
+                <span class="purchase-tooltip">Click here to buy</span>
+            </a>
         </div>
     </div>
 </body>
