@@ -9,23 +9,22 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0;
-        }
-        
-        .container {
+            background: linear-gradient(to bottom right, #e0c3ff, #a17aff);
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
+            overflow: hidden;
         }
-        
+
         .card {
-            background-color: #ffffff;
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
             border-radius: 10px;
             padding: 20px;
             box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
         }
-        
+
         .purchase-btn {
             background-color: #00a2ff;
             color: white;
@@ -36,20 +35,18 @@
             font-weight: bold;
             transition: background-color 0.3s;
         }
-        
+
         .purchase-btn:hover {
             background-color: #007acc;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="card">
-            <h1>Welcome to Rise for Roblox</h1>
-            <p>Lets explore the better VapeV4</p>
-            <div class="purchase-btn-wrapper">
-                <a href="https://vantage.rip" class="purchase-btn">Purchase</a>
-            </div>
+    <div class="card">
+        <h1>Welcome to Rise for Roblox</h1>
+        <p>Lets explore the better VapeV4!</p>
+        <div class="purchase-btn-wrapper">
+            <a href="https://vantage.rip" class="purchase-btn">Purchase</a>
         </div>
     </div>
 </body>
