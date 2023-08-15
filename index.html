@@ -28,13 +28,13 @@
         .tiles-container {
             display: flex;
             justify-content: center;
-            margin-top: 20px;
+            margin-top: 50px;
         }
 
         .tile {
             background-color: #ffffff;
             border-radius: 10px;
-            padding: 10px 20px;
+            padding: 20px 40px; /* Larger size */
             margin: 0 10px;
             cursor: pointer;
             transition: background-color 0.3s;
@@ -51,7 +51,7 @@
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
             text-align: center;
             max-width: 800px;
-            margin: 20px;
+            margin: 100px 20px;
         }
 
         .store-title {
@@ -68,7 +68,7 @@
 
         .purchase-btn {
             position: relative;
-            background-color: #007acc;
+            background-color: #6c63ff; /* Purple bluish color */
             color: white;
             border: none;
             border-radius: 5px;
@@ -79,7 +79,7 @@
         }
 
         .purchase-btn:hover {
-            background-color: #005faa;
+            background-color: #5149c5; /* Darker shade on hover */
         }
 
         .purchase-tooltip {
@@ -114,9 +114,20 @@
         <img src="riseimage.jpg" alt="Placeholder Image" class="placeholder-image">
         
         <div class="tiles-container">
+            <div class="tile" onclick="scrollToSection('purchase-section')">Purchase</div>
             <div class="tile" onclick="scrollToSection('about-section')">About Rise</div>
             <div class="tile" onclick="scrollToSection('why-buy-section')">Why Should You Buy Rise?</div>
-            <!-- Add more tiles as needed -->
+        </div>
+
+        <div class="store-card" id="purchase-section">
+            <h2 class="store-title">Purchase</h2>
+            <p class="store-description">Ready to experience the enhanced Roblox experience with Rise?</p>
+            <div class="purchase-btn-wrapper" title="Click here to purchase">
+                <a href="https://vantage.rip" class="purchase-btn">
+                    Purchase
+                    <span class="purchase-tooltip">Click here to buy</span>
+                </a>
+            </div>
         </div>
 
         <div class="store-card" id="about-section">
@@ -127,19 +138,6 @@
         <div class="store-card" id="why-buy-section">
             <h2 class="store-title">Why Should You Buy Rise?</h2>
             <p class="store-description">Discover the benefits of using Rise for Roblox and...</p>
-        </div>
-
-        <!-- Add more sections as needed -->
-
-        <div class="store-card">
-            <h1 class="store-title">Rise for Roblox Store</h1>
-            <p class="store-description">Let's explore the better VapeV4 for an enhanced Roblox experience!</p>
-            <div class="purchase-btn-wrapper" title="Click here to purchase">
-                <a href="https://vantage.rip" class="purchase-btn">
-                    Purchase
-                    <span class="purchase-tooltip">Click here to buy</span>
-                </a>
-            </div>
         </div>
     </div>
 
