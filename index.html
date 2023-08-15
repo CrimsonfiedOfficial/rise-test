@@ -10,18 +10,38 @@
             margin: 0;
             padding: 0;
             background-color: #e5e5e5;
+        }
+
+        .page-container {
             display: flex;
-            flex-direction: column; /* Stack elements vertically */
+            flex-direction: column;
             align-items: center;
-            min-height: 100vh;
-            overflow: hidden;
         }
 
         .placeholder-image {
             max-width: 100%;
             height: auto;
             max-height: 440px;
-            margin-top: 20px; /* Add spacing between the image and the card */
+            margin-top: 20px;
+        }
+
+        .tiles-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .tile {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 10px 20px;
+            margin: 0 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .tile:hover {
+            background-color: #f0f0f0;
         }
 
         .store-card {
@@ -30,8 +50,8 @@
             padding: 30px;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
             text-align: center;
-            max-width: 400px;
-            margin-top: 20px; /* Add spacing between the card and other elements */
+            max-width: 800px;
+            margin: 20px;
         }
 
         .store-title {
@@ -80,20 +100,56 @@
         .purchase-btn-wrapper:hover .purchase-tooltip {
             opacity: 1;
         }
+
+        .section {
+            margin: 20px 0;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 10px;
+        }
     </style>
 </head>
 <body>
-    <img src="riseimage.jpg" alt="Placeholder Image" class="placeholder-image">
-    
-    <div class="store-card">
-        <h1 class="store-title">Rise for Roblox Store</h1>
-        <p class="store-description">Lets explore the better VapeV4 for an enhanced Roblox experience!</p>
-        <div class="purchase-btn-wrapper" title="Click here to purchase">
-            <a href="https://vantage.rip" class="purchase-btn">
-                Purchase
-                <span class="purchase-tooltip">Click here to buy</span>
-            </a>
+    <div class="page-container">
+        <img src="riseimage.jpg" alt="Placeholder Image" class="placeholder-image">
+        
+        <div class="tiles-container">
+            <div class="tile" onclick="scrollToSection('about-section')">About Rise</div>
+            <div class="tile" onclick="scrollToSection('why-buy-section')">Why Should You Buy Rise?</div>
+            <!-- Add more tiles as needed -->
+        </div>
+
+        <div class="store-card" id="about-section">
+            <h2 class="store-title">About Rise</h2>
+            <p class="store-description">Rise for Roblox is a cutting-edge enhancement package designed to...</p>
+        </div>
+
+        <div class="store-card" id="why-buy-section">
+            <h2 class="store-title">Why Should You Buy Rise?</h2>
+            <p class="store-description">Discover the benefits of using Rise for Roblox and...</p>
+        </div>
+
+        <!-- Add more sections as needed -->
+
+        <div class="store-card">
+            <h1 class="store-title">Rise for Roblox Store</h1>
+            <p class="store-description">Let's explore the better VapeV4 for an enhanced Roblox experience!</p>
+            <div class="purchase-btn-wrapper" title="Click here to purchase">
+                <a href="https://vantage.rip" class="purchase-btn">
+                    Purchase
+                    <span class="purchase-tooltip">Click here to buy</span>
+                </a>
+            </div>
         </div>
     </div>
+
+    <script>
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    </script>
 </body>
 </html>
