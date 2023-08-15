@@ -28,7 +28,8 @@
         .tiles-container {
             display: flex;
             justify-content: center;
-            margin-top: 20px; /* Move the tiles to the top */
+            align-items: flex-start; /* Align items to the top */
+            margin-top: 1000px; /* Move the tiles down */
         }
 
         .tile {
@@ -111,6 +112,26 @@
             background-color: #ffffff;
             border-radius: 10px;
         }
+
+        .scroll-arrow {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 24px;
+            cursor: pointer;
+            animation: bounce 2s infinite;
+            display: none; /* Hide initially */
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
     </style>
 </head>
 <body>
@@ -145,13 +166,48 @@
         </div>
     </div>
 
+    <div class="scroll-arrow" id="scroll-arrow" onclick="scrollToVisibleSection()">↑</div>
+
     <script>
-        function scrollToSection(sectionId) {
-            const section = document.getElementById(sectionId);
-            if (section) {
-                section.scrollIntoView({ behavior: 'smooth' });
+        const scrollArrow = document.getElementById("scroll-arrow");
+
+        function updateScrollArrowVisibility() {
+            const aboutSection = document.getElementById("about-section");
+            const whyBuySection = document.getElementById("why-buy-section");
+
+            const isAboutVisible = isElementVisible(aboutSection);
+            const isWhyBuyVisible = isElementVisible(whyBuySection);
+
+            if (!isAboutVisible || !isWhyBuyVisible) {
+                scrollArrow.style.display = "block";
+            } else {
+                scrollArrow.style.display = "none";
             }
         }
+
+        function isElementVisible(element) {
+            const rect = element.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+        function scrollToVisibleSection() {
+            const aboutSection = document.getElementById("about-section");
+            const whyBuySection = document.getElementById("why-buy-section");
+
+            if (!isElementVisible(aboutSection)) {
+                aboutSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            } else if (!isElementVisible(whyBuySection)) {
+                whyBuySection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+
+        window.addEventListener('scroll', updateScrollArrowVisibility);
+        updateScrollArrowVisibility(); // Initial visibility check
     </script>
 </body>
 </html>
