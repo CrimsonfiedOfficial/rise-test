@@ -28,7 +28,7 @@
         .tiles-container {
             display: flex;
             justify-content: center;
-            margin-top: 20px; /* Move the tiles down */
+            margin-top: 20px; /* Move the tiles to the top */
         }
 
         .tile {
@@ -41,7 +41,6 @@
             color: white;
             text-align: center;
             min-width: 200px; /* Ensure all tiles have the same width */
-            position: relative; /* Add position relative for z-index */
         }
 
         .tile:hover {
@@ -55,7 +54,7 @@
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
             text-align: center;
             max-width: 800px;
-            margin: 20px 20px; /* Move the sections down */
+            margin: 1000px 20px; /* Move the sections way down */
         }
 
         .store-title {
@@ -81,13 +80,6 @@
             font-weight: bold;
             transition: background-color 0.3s;
             z-index: 2; /* Place button on top */
-            width: 205px; /* Adjusted width */
-            height: 184px; /* Adjusted height */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            position: absolute; /* Position absolute to overlap other buttons */
         }
 
         .purchase-btn:hover {
@@ -114,46 +106,32 @@
         }
 
         .section {
-            margin: 3000px 0 0; /* Move sections way down off the screen */
+            margin: 3000px 0; /* Move sections way down off the screen */
             padding: 30px;
             background-color: #ffffff;
             border-radius: 10px;
-        }
-
-        .scroll-arrow {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 24px;
-            cursor: pointer;
-            animation: bounce 2s infinite;
-            display: none; /* Hide initially */
-        }
-
-        @keyframes bounce {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
         }
     </style>
 </head>
 <body>
     <div class="page-container">
         <img src="riseimage.jpg" alt="Placeholder Image" class="placeholder-image">
-
-        <div class="store-card" id="purchase-section">
-            <a href="https://vantage.rip" class="purchase-btn">
-                Purchase
-                <span class="purchase-tooltip">Click here to buy</span>
-            </a>
-        </div>
-
+        
         <div class="tiles-container">
             <div class="tile" onclick="scrollToSection('purchase-section')">Purchase</div>
+            <div class="tile" onclick="scrollToSection('about-section')">About Rise</div>
+            <div class="tile" onclick="scrollToSection('why-buy-section')">Why Should You Buy Rise?</div>
+        </div>
+
+        <div class="store-card" id="purchase-section">
+            <h2 class="store-title">Purchase</h2>
+            <p class="store-description">Ready to experience the enhanced Roblox experience with Rise?</p>
+            <div class="purchase-btn-wrapper" title="Click here to purchase">
+                <a href="https://vantage.rip" class="purchase-btn">
+                    Purchase
+                    <span class="purchase-tooltip">Click here to buy</span>
+                </a>
+            </div>
         </div>
 
         <div class="store-card" id="about-section">
@@ -165,50 +143,15 @@
             <h2 class="store-title">Why Should You Buy Rise?</h2>
             <p class="store-description">Discover the benefits of using Rise for Roblox and...</p>
         </div>
-
-        <div class="scroll-arrow" id="scroll-arrow" onclick="scrollToVisibleSection()">↑</div>
-
-        <script>
-            const scrollArrow = document.getElementById("scroll-arrow");
-
-            function updateScrollArrowVisibility() {
-                const aboutSection = document.getElementById("about-section");
-                const whyBuySection = document.getElementById("why-buy-section");
-
-                const isAboutVisible = isElementVisible(aboutSection);
-                const isWhyBuyVisible = isElementVisible(whyBuySection);
-
-                if (!isAboutVisible || !isWhyBuyVisible) {
-                    scrollArrow.style.display = "block";
-                } else {
-                    scrollArrow.style.display = "none";
-                }
-            }
-
-            function isElementVisible(element) {
-                const rect = element.getBoundingClientRect();
-                return (
-                    rect.top >= 0 &&
-                    rect.left >= 0 &&
-                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-                    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-                );
-            }
-
-            function scrollToVisibleSection() {
-                const aboutSection = document.getElementById("about-section");
-                const whyBuySection = document.getElementById("why-buy-section");
-
-                if (!isElementVisible(aboutSection)) {
-                    aboutSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                } else if (!isElementVisible(whyBuySection)) {
-                    whyBuySection.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }
-            }
-
-            window.addEventListener('scroll', updateScrollArrowVisibility);
-            updateScrollArrowVisibility(); // Initial visibility check
-        </script>
     </div>
+
+    <script>
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    </script>
 </body>
 </html>
